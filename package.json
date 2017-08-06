@@ -1,0 +1,15 @@
+{
+  "name": "react-tutorial",
+  "version": "0.0.1",
+  "description": "React Tutorial",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goominc/react-tutorial.git"
+  },
+  "author": "Hyoungwook Kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goominc/react-tutorial/issues"
+  },
+  "homepage": "https://github.com/goominc/react-tutorial#readme"
+}
