@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 
-const AddTodo = ({ addTodo }) => {
+const AddTodo = ({ dispatch }) => {
   let input;
   const submit = (e) => {
     e.preventDefault();
-    addTodo(input.value);
+    dispatch({ type: 'ADD_TODO', text: input.value });
     input.value = '';
   };
   return (
@@ -16,7 +17,7 @@ const AddTodo = ({ addTodo }) => {
 };
 
 AddTodo.propTypes = {
-  addTodo: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
-export default AddTodo;
+export default connect()(AddTodo);

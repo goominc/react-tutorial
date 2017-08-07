@@ -1,36 +1,26 @@
-import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import AddTodo from 'components/AddTodo';
 import TodoList from 'components/TodoList';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = ({ todos }) => (
+  <div>
+    <h1>Todo</h1>
+    <AddTodo />
+    <TodoList todos={todos} />
+  </div>
+);
 
-    this.state = { id: 0, todos: [] };
-  }
+App.propTypes = {
+  todos: PropTypes.arrayOf(PropTypes.shape({
+    completed: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
-  render() {
-    const addTodo = (text) => {
-      const id = this.state.id + 1;
-      const todo = { id, text, completed: false };
-      const todos = Array.from(this.state.todos);
-      todos.push(todo);
-      this.setState({ id, todos });
-    };
-    const toggleCompleted = (id) => {
-      const todos = this.state.todos.map(todo => (
-        todo.id !== id ? todo : Object.assign({}, todo, { completed: !todo.completed })));
-      this.setState({ todos });
-    };
-    return (
-      <div>
-        <h1>Todo</h1>
-        <AddTodo addTodo={addTodo} />
-        <TodoList todos={this.state.todos} onClick={toggleCompleted} />
-      </div>
-    );
-  }
-}
-
-export default App;
+export default connect(
+  state => ({ todos: state.todos }),
+)(App);
