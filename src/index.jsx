@@ -13,10 +13,15 @@ const todoData = [{
   completed: true,
 }];
 
+const toggleCompleted = (id) => {
+  const todo = todoData.find(t => t.id === id);
+  todo.completed = !todo.completed;
+};
+
 ReactDOM.render(
   <div>
     <h1>Todo</h1>
-    <TodoList todos={todoData} />
+    <TodoList todos={todoData} onClick={toggleCompleted} />
   </div>,
   document.getElementById('root'),
 );
