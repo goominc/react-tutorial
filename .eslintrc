@@ -6,7 +6,8 @@
   "rules": {
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": [ "src/**/*" ]
-    }]
+    }],
+    "no-return-assign": ["error", "except-parens"]
   },
   "settings": {
     "import/resolver": "webpack"
