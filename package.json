@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "webpack",
-    "lint": "eslint . --ext js,jsx"
+    "lint": "eslint . --ext js,jsx",
+    "watch": "webpack --watch"
   },
   "author": "Hyoungwook Kim",
   "license": "MIT",
