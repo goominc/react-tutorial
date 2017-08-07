@@ -5,9 +5,10 @@
   "extends": "airbnb",
   "rules": {
     "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": [
-        "src/*"
-      ]
+      "devDependencies": [ "src/**/*" ]
     }]
+  },
+  "settings": {
+    "import/resolver": "webpack"
   }
 }
